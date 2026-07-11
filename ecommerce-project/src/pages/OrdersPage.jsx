@@ -1,10 +1,20 @@
 import './OrdersPage.css';
 import './HomePage.css';
+import axios from 'axios';
+import { useState,useEffect } from 'react';
 import { Header } from '../components/Header';
-export function OrdersPage() {
+
+export function OrdersPage({cart}) {
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+
+  },[]);
+
   return (
     <>
-    <Header />
+    <Header cart={cart} />
+    
 
     <div className="orders-page">
       <div className="page-title">Your Orders</div>
