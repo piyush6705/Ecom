@@ -5,12 +5,17 @@ import { useNavigate } from 'react-router';
 export function PaymentSummary({ paymentSummary, loadCart }) {
   const navigate = useNavigate();
 
-  const createOrder =async () => {
-    await axios.post('/api/orders');
+  const createOrder = async () => {
+  try {
+    const response = await axios.post('/api/orders');
+    console.log(response.data);
+
     await loadCart();
     navigate('/orders');
-  };
-
+  } catch (error) {
+    console.log(error.response.data);
+  }
+};
   return (
     <div className="payment-summary">
       <div className="payment-summary-title">
@@ -54,7 +59,8 @@ export function PaymentSummary({ paymentSummary, loadCart }) {
             </div>
           </div>
 
-          <button className="place-order-button button-primary" onClick={createOrder}>
+          <button className="place-order-button button-primary" onClick={createOrder}
+          disabled={paymentSummary.totalItems === 0}>
             Place your order
           </button>
         </>
