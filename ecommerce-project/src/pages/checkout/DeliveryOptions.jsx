@@ -16,10 +16,13 @@ export function DeliveryOptions({ cartItem, deliveryOptions }) {
 
         return (
           <div key={deliveryOption.id} className="delivery-option">
-            <input type="radio"
+            <input
+              type="radio"
               checked={deliveryOption.id === cartItem.deliveryOptionId}
+              readOnly
               className="delivery-option-input"
-              name={`delivery-option-${cartItem.productId}`} />
+              name={`delivery-option-${cartItem.productId}`}
+            />
             <div>
               <div className="delivery-option-date">
                 {dayjs(deliveryOption.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
