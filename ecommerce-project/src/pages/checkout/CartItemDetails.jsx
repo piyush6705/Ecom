@@ -17,7 +17,8 @@ export function CartItemDetails({ cartItem, deleteCartItem, updateCartItem  }) {
         </div>
         <div className="product-quantity">
           <span>
-            Quantity: <span className="quantity-label">{cartItem.quantity}</span>
+            Quantity:<input type="text" className="quantity-textbox" />
+             <span className="quantity-label">{cartItem.quantity}</span>
           </span>
           <span className="update-quantity-link link-primary" onClick={() => updateCartItem(cartItem.quantity + 1)}>
             Update

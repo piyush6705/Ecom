@@ -27,8 +27,7 @@
   grid-template-columns: 1fr 350px;
   column-gap: 12px;
 
-  /* Use align-items: start; to prevent the elements
-     in the grid from stretching vertically. */
+ 
   align-items: start;
 }
 
@@ -208,4 +207,8 @@
 
   margin-top: 20px;
   margin-bottom: 19px;
+}
+
+.quantity-textbox {
+  width: 50px;
 }
