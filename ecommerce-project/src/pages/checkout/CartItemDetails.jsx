@@ -1,6 +1,6 @@
 import { formatMoney } from '../../utils/money';
 
-export function CartItemDetails({ cartItem, deleteCartItem }) {
+export function CartItemDetails({ cartItem, deleteCartItem, updateCartItem  }) {
   return (
     
     <>
@@ -19,7 +19,7 @@ export function CartItemDetails({ cartItem, deleteCartItem }) {
           <span>
             Quantity: <span className="quantity-label">{cartItem.quantity}</span>
           </span>
-          <span className="update-quantity-link link-primary">
+          <span className="update-quantity-link link-primary" onClick={() => updateCartItem(cartItem.quantity + 1)}>
             Update
           </span>
           <span className="delete-quantity-link link-primary" onClick={

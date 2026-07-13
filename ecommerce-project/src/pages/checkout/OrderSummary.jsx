@@ -12,12 +12,22 @@ export function OrderSummary({ cart, deliveryOptions, loadCart }) {
         await  axios.delete(`/api/cart-items/${cartItem.productId}`);
         await loadCart();
     };
+
+    const updateCartItem = async (newQuantity) => {
+      await axios.put(`/api/cart-items/${cartItem.productId}`, {
+        quantity: newQuantity
+      });
+
+      await loadCart();
+    };
+
+    
         return (
           <div key={cartItem.productId} className="cart-item-container">
             <DeliveryDate cartItem={cartItem} deliveryOptions={deliveryOptions}  />
 
             <div className="cart-item-details-grid">
-              <CartItemDetails cartItem={cartItem} deleteCartItem={deleteCartItem} />
+              <CartItemDetails cartItem={cartItem} deleteCartItem={deleteCartItem} updateCartItem={updateCartItem} />
 
               <DeliveryOptions cartItem={cartItem} deliveryOptions={deliveryOptions} loadCart={loadCart} />
             </div>
